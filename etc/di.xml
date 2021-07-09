@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU General Public License v3 (GPL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * @category Smolyan
+ * @package Smolyan_VivaWallet
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\HttpRepository-->
+    <preference for="Smolyan\VivaWallet\Api\HttpRepositoryInterface" type="Smolyan\VivaWallet\Model\Http\HttpRepository" />
+
+    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Response\AuthenticationResponse-->
+    <preference for="Smolyan\VivaWallet\Api\Data\AuthenticationResponseInterface" type="Smolyan\VivaWallet\Model\Http\Response\AuthenticationResponse" />
+
+    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Response\ChargeResponse-->
+    <preference for="Smolyan\VivaWallet\Api\Data\ChargeResponseInterface" type="Smolyan\VivaWallet\Model\Http\Response\ChargeResponse" />
+
+    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Request\HttpRequestBuilder-->
+    <preference for="Smolyan\VivaWallet\Api\HttpRequestBuilderInterface" type="Smolyan\VivaWallet\Model\Http\Request\HttpRequestBuilder" />
+
+    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Request\HttpRequest-->
+    <preference for="Smolyan\VivaWallet\Api\Data\HttpRequestInterface" type="Smolyan\VivaWallet\Model\Http\Request\HttpRequest" />
+
+    <!--Service contract for the model Smolyan\VivaWallet\Http\Data\TransactionResponseInterface-->
+    <preference for="Smolyan\VivaWallet\Api\Data\TransactionResponseInterface" type="Smolyan\VivaWallet\Model\Http\Response\TransactionResponse" />
+
+    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Response\CardTokenResponse-->
+    <preference for="Smolyan\VivaWallet\Api\Data\CardTokenResponseInterface" type="Smolyan\VivaWallet\Model\Http\Response\CardTokenResponse" />
+
+    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\HttpClient-->
+    <preference for="Smolyan\VivaWallet\Api\HttpClientInterface" type="Smolyan\VivaWallet\Model\Http\HttpClient" />
+
+    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Response\ChargeByCardResponse-->
+    <preference for="Smolyan\VivaWallet\Api\Data\ChargeByCardResponseInterface" type="Smolyan\VivaWallet\Model\Http\Response\ChargeByCardResponse" />
+
+    <!--
+        TODO: should be removed after magento fixes
+        This plugin should fix magento bug when saving vault occurs.
+        When user use the same card and don't uncheck "Save my card" option, magento throws exception: "Unique constraint violation found"
+        More details about fix and bug report here: https://github.com/Adyen/adyen-magento2/issues/678
+    -->
+    <type name="Magento\Vault\Api\PaymentTokenManagementInterface">
+        <plugin name="smolyan_vivawallet_payment_token_management_plugin" type="Smolyan\VivaWallet\Plugin\Model\PaymentTokenManagementPlugin" />
+    </type>
+
+    <!--************************************************************* START: ERROR MSG MAPPER *************************************************************-->
+    <!--Specify the location of the error mapping file-->
+    <virtualType name="Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualConfigReader" type="Magento\Payment\Gateway\ErrorMapper\VirtualConfigReader">
+        <arguments>
+            <argument name="fileName" xsi:type="string">viva_wallet_error_mapping.xml</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualMappingData" type="Magento\Payment\Gateway\ErrorMapper\MappingData">
+        <arguments>
+            <argument name="reader" xsi:type="object">Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualConfigReader</argument>
+            <argument name="cacheId" xsi:type="string">viva_wallet_error_mapper</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper" type="Magento\Payment\Gateway\ErrorMapper\ErrorMessageMapper">
+        <arguments>
+            <argument name="messageMapping" xsi:type="object">Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualMappingData</argument>
+        </arguments>
+    </virtualType>
+    <!--************************************************************* END: ERROR MSG MAPPER *************************************************************-->
+
+    <!--************************************************************* START: LOGGER *************************************************************-->
+    <type name="Smolyan\VivaWallet\Model\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Smolyan\VivaWallet\Model\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">vivawallet</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Smolyan\VivaWallet\Model\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <!--************************************************************* END: LOGGER *************************************************************-->
+
+    <!--
+        Payment Method Facade configuration. Main config for the payment method
+        WHERE:
+        formBlockType -  block class responsible for payment provider gateway form rendering (admin panel only)
+        infoBlockType -  responsible for Transaction/Payment Information details rendering in Order block in Admin panel or customer account on storefront
+        valueHandlerPool - pool of value handlers used for queries to configuration, processes payment provider response
+        commandPool - pool of gateway commands
+        -->
+    <virtualType name="VivaWalletPaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">\Smolyan\VivaWallet\Model\UI\PaymentConfigProvider::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\ConfigurableInfo</argument>
+            <argument name="valueHandlerPool" xsi:type="object">VivaWalletGatewayValueHandlerPool</argument>
+            <argument name="commandPool" xsi:type="object">VivaWalletGatewayCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <!--
+        Configuration reader.
+        Reads configuration for the payment method with appropriate payment code from database or payment config file.
+    -->
+    <virtualType name="VivaWalletGatewayConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">\Smolyan\VivaWallet\Model\UI\PaymentConfigProvider::CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <!--
+        *** Value handlers infrastructure ***
+        Mind that default value should be always determined!
+        extend your custom class form Magento\Payment\Gateway\Config\ConfigValueHandler if need customizations
+        You can manage here can_void, can_cancel methods and so on
+    -->
+    <virtualType name="VivaWalletGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">VivaWalletGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!--Can read configuration by payment method code-->
+    <virtualType name="VivaWalletGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">VivaWalletGatewayConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <!--************************************************************* START: COMMANDS INFRASTRUCTURE *************************************************************-->
+    <!--
+        Use this for the command payment determination. Here are the following possible commands:
+
+        authorize: process authorization transaction; check user data and hold quote
+        sale: process authorization transaction and capture automatically, funds are withdrawn
+        capture: withdraw previously authorized amount
+        refund: return previously withdrawn customer funds
+        void: cancel transfer of funds from customer account
+
+        payment action will be chosen from config.xml,
+        determine in config.xml <payment_action> or create custom payment selector in admin panel
+    -->
+    <virtualType name="VivaWalletGatewayCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="authorize" xsi:type="string">VivaWalletGatewayAuthorizeCommand</item>
+                <item name="capture" xsi:type="string">VivaWalletGatewayCaptureCommand</item>
+                <item name="vault_authorize" xsi:type="string">VivaWalletVaultAuthorizeCommand</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!--
+        *****
+            Get charge token and redirect form from VivaWallet.
+            In this step user money !is not authorized!. They will be authorized after user form confirmation
+            Money will be authorized after place order in magento and when a user will successfully confirm his card in redirected form page
+        *****
+
+        requestBuilder - builds an array of provider-specific arguments using the order information.
+                         build data for the payment request (https://devdocs.magento.com/guides/v2.3/payments-integrations/payment-gateway/request-builder.html)
+        transferFactory - class which prepares request and adds extra data to the transfer object which will be used in client
+                          https://devdocs.magento.com/guides/v2.3/payments-integrations/payment-gateway/gateway-client.html#transfer_factory
+        client - executes transfer and provides response from payment
+                 https://devdocs.magento.com/guides/v2.3/payments-integrations/payment-gateway/gateway-client.html
+        handler - changes the order and payment status depending on the payment provider response.
+                  https://devdocs.magento.com/guides/v2.3/payments-integrations/payment-gateway/response-handler.html
+        validator - validate response
+                  https://devdocs.magento.com/guides/v2.3/payments-integrations/payment-gateway/response-validator.html
+        errorMessageMapper - map error code with appropriate message
+    -->
+    <virtualType name="VivaWalletGatewayAuthorizeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">Smolyan\VivaWallet\Gateway\Request\AuthorizeRequestBuilder</argument>
+            <argument name="transferFactory" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\Client\AuthorizeClient</argument>
+            <argument name="validator" xsi:type="object">Smolyan\VivaWallet\Gateway\Validator\AuthorizeValidator</argument>
+            <argument name="handler" xsi:type="object">Smolyan\VivaWallet\Gateway\Response\AuthorizeHandler</argument>
+            <argument name="errorMessageMapper" xsi:type="object">Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper</argument>
+        </arguments>
+    </virtualType>
+
+    <!--
+        ***** Create real transaction for payment. *****
+    -->
+    <virtualType name="VivaWalletGatewayCaptureCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">VivaWalletCaptureRequestComposite</argument>
+            <argument name="transferFactory" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\Client\CaptureClient</argument>
+            <argument name="validator" xsi:type="object">Smolyan\VivaWallet\Gateway\Validator\CaptureValidator</argument>
+            <argument name="handler" xsi:type="object">VivaWalletCaptureResponseHandler</argument>
+            <argument name="errorMessageMapper" xsi:type="object">Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="VivaWalletCaptureRequestComposite" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="capture_builder" xsi:type="string">Smolyan\VivaWallet\Gateway\Request\CaptureRequestBuilder</item>
+                <item name="vault_builder" xsi:type="string">Smolyan\VivaWallet\Gateway\Request\VaultRequestBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="VivaWalletCaptureResponseHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="capture_handler" xsi:type="string">Smolyan\VivaWallet\Gateway\Response\CaptureHandler</item>
+                <item name="vault_handler" xsi:type="string">Smolyan\VivaWallet\Gateway\Response\VaultDetailsHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!--
+        ***** Vault payment. Get charge token by card *****
+    -->
+    <virtualType name="VivaWalletVaultAuthorizeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">Smolyan\VivaWallet\Gateway\Request\VaultAuthorizeRequestBuilder</argument>
+            <argument name="transferFactory" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\Client\VaultAuthorizeClient</argument>
+            <argument name="validator" xsi:type="object">Smolyan\VivaWallet\Gateway\Validator\VaultAuthorizeValidator</argument>
+            <argument name="handler" xsi:type="object">Smolyan\VivaWallet\Gateway\Response\VaultAuthorizeHandler</argument>
+            <argument name="errorMessageMapper" xsi:type="object">Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper</argument>
+        </arguments>
+    </virtualType>
+
+    <!--************************************************************* END: COMMANDS INFRASTRUCTURE *************************************************************-->
+
+
+    <!--************************************************************* START: VAULT INTEGRATION *************************************************************-->
+    <!--
+        Vault Integration. Save card info and use customer credit card as a payment method
+    -->
+    <virtualType name="VivaWalletVaultPaymentConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">\Smolyan\VivaWallet\Model\UI\PaymentConfigProvider::CC_VAULT_CODE</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="VivaWalletVaultPaymentValueHandler" type="VaultPaymentDefaultValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">VivaWalletVaultPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="VivaWalletVaultPaymentValueHandlerPool" type="VaultPaymentValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">VivaWalletVaultPaymentValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="VivaWalletCreditCardVaultFacade" type="Magento\Vault\Model\Method\Vault">
+        <arguments>
+            <argument name="config" xsi:type="object">VivaWalletVaultPaymentConfig</argument>
+            <argument name="valueHandlerPool" xsi:type="object">VivaWalletVaultPaymentValueHandlerPool</argument>
+            <argument name="vaultProvider" xsi:type="object">VivaWalletPaymentGatewayFacade</argument>
+            <argument name="code" xsi:type="const">\Smolyan\VivaWallet\Model\UI\PaymentConfigProvider::CC_VAULT_CODE</argument>
+        </arguments>
+    </virtualType>
+    <!--************************************************************* END: VAULT INTEGRATION *************************************************************-->
+
+
+    <!--************************************************************* START: COMMAND MANAGERS SECTION FOR VAULT *************************************************************-->
+    <virtualType name="VivaWalletCommandManager" type="Magento\Payment\Gateway\Command\CommandManager">
+        <arguments>
+            <argument name="commandPool" xsi:type="object">VivaWalletGatewayCommandPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Payment\Gateway\Command\CommandManagerPool">
+        <arguments>
+            <argument name="executors" xsi:type="array">
+                <item name="viva_wallet" xsi:type="string">VivaWalletCommandManager</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- ************************************************************* END: COMMAND MANAGERS SECTION FOR VAULT *************************************************************-->
+</config>

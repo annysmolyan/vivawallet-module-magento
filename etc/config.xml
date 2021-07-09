@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU General Public License v3 (GPL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * @category Smolyan
+ * @package Smolyan_VivaWallet
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <viva_wallet>
+                <active>0</active>
+                <model>VivaWalletPaymentGatewayFacade</model>
+                <order_status>processing</order_status>
+                <title>Viva Wallet Payment</title>
+                <cctypes>AE,VI,MC</cctypes>
+                <payment_action>authorize</payment_action>
+                <sort_order>1</sort_order>
+                <min_order_total>0</min_order_total>
+                <allowspecific>0</allowspecific>
+                <currency>USD</currency>
+                <is_gateway>1</is_gateway>
+                <can_use_checkout>1</can_use_checkout>
+                <can_use_for_multishipping>0</can_use_for_multishipping>
+                <can_authorize>1</can_authorize>
+                <can_capture>1</can_capture>
+                <debug>1</debug>
+                <test_payment_url>https://demo-api.vivapayments.com</test_payment_url>
+                <production_payment_url>https://api.vivapayments.com</production_payment_url>
+                <auth_debug_endpoint>https://demo-accounts.vivapayments.com/connect/token</auth_debug_endpoint>
+                <auth_prod_endpoint>https://accounts.vivapayments.com/connect/token</auth_prod_endpoint>
+                <can_capture_vault>1</can_capture_vault>
+                <min_order_total>1</min_order_total>
+            </viva_wallet>
+            <viva_wallet_cc_vault>
+                <model>VivaWalletCreditCardVaultFacade</model>
+                <title>Stored Cards (VivaWallet)</title>
+            </viva_wallet_cc_vault>
+        </payment>
+    </default>
+</config>

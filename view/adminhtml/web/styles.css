@@ -1,0 +1,32 @@
+<!--
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU General Public License v3 (GPL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * @category Smolyan
+ * @package Smolyan_VivaWallet
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
+ */
+-->
+.viva-wallet-section .viva-wallet-payment-logo {
+    background: url("images/viva-wallet-logo.svg") no-repeat 0 0% / 18rem auto;
+    height: 60px;
+    width: auto;
+    padding-left: 20rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.viva-wallet-section .button-container {
+    float: right;
+}
+
+.viva-wallet-section .viva-wallet-payment-text {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%
+}

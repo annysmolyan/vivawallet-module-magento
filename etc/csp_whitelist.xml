@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU General Public License v3 (GPL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * @category Smolyan
+ * @package Smolyan_VivaWallet
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
+ */
+-->
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <!--Defines the sources that can be loaded using script interfaces.-->
+        <policy id="connect-src">
+            <values>
+                <value id="vivapayments-connect-src" type="host">https://demo.vivapayments.com</value>
+                <value id="vivapayments-account-connect-src" type="host">https://accounts.vivapayments.com</value>
+            </values>
+        </policy>
+        <!--Defines the sources for JavaScript <script> elements.-->
+        <policy id="script-src">
+            <values>
+                <value id="vivapayments-script-src-1" type="host">https://demo.vivapayments.com/web/checkout/v2/js</value>
+                <value id="vivapayments-script-src-2" type="host">https://accounts.vivapayments.com/web/checkout/v2/js</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

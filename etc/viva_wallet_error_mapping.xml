@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU General Public License v3 (GPL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * @category Smolyan
+ * @package Smolyan_VivaWallet
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
+ */
+-->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/error_mapping.xsd">
+    <message_list>
+        <message code="400" translate="true">VivaWallet payment: Bad request. Server could not understand the request due to invalid syntax.</message>
+        <message code="401" translate="true">VivaWallet payment: Unauthorized.</message>
+        <message code="403" translate="true">VivaWallet payment: Forbidden. You are not allowed to proceed.</message>
+        <message code="404" translate="true">VivaWallet payment: Can not read the url.</message>
+        <message code="405" translate="true">VivaWallet payment: Method not allowed. The request method is known by the server but has been disabled and cannot be used.</message>
+        <message code="406" translate="true">VivaWallet payment: Not acceptable. Can not read a non json object.</message>
+        <message code="409" translate="true">VivaWallet payment: Conflict. Payment has a conflict request.</message>
+        <message code="410" translate="true">VivaWallet payment: Gone. Payment approach was permanently removed.</message>
+        <message code="429" translate="true">The Viva Wallet payment: too many requests.</message>
+        <message code="500" translate="true">The Viva Wallet payment is not allowed at the moment.</message>
+        <message code="502" translate="true">The Viva Wallet payment is not allowed at the moment.</message>
+        <message code="504" translate="true">The Viva Wallet payment is not allowed at the moment.</message>
+        <message code="503" translate="true">The Viva Wallet payment is not allowed at the moment.</message>
+    </message_list>
+</mapping>

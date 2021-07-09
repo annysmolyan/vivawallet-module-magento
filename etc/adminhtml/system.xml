@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU General Public License v3 (GPL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * @category Smolyan
+ * @package Smolyan_VivaWallet
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="viva_wallet" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Viva Wallet</label>
+                <fieldset_css>complex viva-wallet-section with-button</fieldset_css>
+                <frontend_model>Smolyan\VivaWallet\Block\Adminhtml\System\Config\Payment\VivaWalletFieldset</frontend_model>
+                <group id="settings" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Viva Wallet General Settings</label>
+                    <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>payment/viva_wallet/active</config_path>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Title</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet/title</config_path>
+                    </field>
+                    <field id="cctypes" translate="label" type="multiselect" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Credit Card Types</label>
+                        <source_model>Magento\Payment\Model\Source\Cctype</source_model>
+                        <config_path>payment/viva_wallet/cctypes</config_path>
+                    </field>
+                    <field id="currency" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Accepted Currency</label>
+                        <source_model>Magento\Config\Model\Config\Source\Locale\Currency</source_model>
+                        <config_path>payment/viva_wallet/currency</config_path>
+                        <comment>It should be set to the same currency as your Viva Wallet account</comment>
+                    </field>
+                    <field id="currency_iso_number" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Currency ISO 4217 Number</label>
+                        <validate>validate-number required-entry</validate>
+                        <config_path>payment/viva_wallet/currency_iso_number</config_path>
+                        <comment><![CDATA[It should be set to the same ISO 4217 currency number as your Viva Wallet account. F.e GB has 826 currency code, EUR has 978, USD has 840. <a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">See More Here</a>]]></comment>
+                    </field>
+                    <field id="allowspecific" translate="label" type="allowspecific" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Payment from Applicable Countries</label>
+                        <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                        <config_path>payment/viva_wallet/allowspecific</config_path>
+                    </field>
+                    <field id="specificcountry" translate="label" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Payment from Specific Countries</label>
+                        <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                        <can_be_empty>1</can_be_empty>
+                        <config_path>payment/viva_wallet/specificcountry</config_path>
+                    </field>
+                    <field id="min_order_total" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Minimum Order Total</label>
+                        <validate>validate-number validate-zero-or-greater</validate>
+                        <config_path>payment/viva_wallet/min_order_total</config_path>
+                    </field>
+                    <field id="debug" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Enable Debug Mode</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>payment/viva_wallet/debug</config_path>
+                    </field>
+                    <field id="test_payment_url" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Test Payment Url</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet/test_payment_url</config_path>
+                        <comment>Example: https://demo-api.vivapayments.com</comment>
+                    </field>
+                    <field id="production_payment_url" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Production Payment Url</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet/production_payment_url</config_path>
+                        <comment>Example: https://api.vivapayments.com</comment>
+                    </field>
+                    <field id="merchant_trn_reference" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Merchant transaction reference</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet/merchant_trn_reference</config_path>
+                        <comment>Example: Payment from mysite.com</comment>
+                    </field>
+                </group>
+                <group id="native_settings" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Native Checkout Credentials</label>
+                    <field id="client_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Client ID</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet/client_id</config_path>
+                    </field>
+                    <field id="secret_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Secret Key</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet/secret_key</config_path>
+                    </field>
+                    <field id="prod_source_code" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Production Payment Source Code</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet/prod_source_code</config_path>
+                        <comment>See about source code here: https://developer.vivawallet.com/e-commerce-plugins/create-a-payment-source/</comment>
+                    </field>
+                    <field id="debug_source_code" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Debug Payment Source Code</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet/debug_source_code</config_path>
+                        <comment>See about source code here: https://developer.vivawallet.com/e-commerce-plugins/create-a-payment-source/</comment>
+                    </field>
+                    <field id="auth_prod_endpoint" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Authentication Production Endpoint</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet/auth_prod_endpoint</config_path>
+                    </field>
+                    <field id="auth_debug_endpoint" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Authentication Debug Endpoint</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet/auth_debug_endpoint</config_path>
+                    </field>
+                </group>
+                <group id="viva_wallet_cc_vault" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Vault Settings</label>
+                    <field id="active" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Vault Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>payment/viva_wallet_cc_vault/active</config_path>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Vault Title</label>
+                        <validate>required-entry</validate>
+                        <config_path>payment/viva_wallet_cc_vault/title</config_path>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>
