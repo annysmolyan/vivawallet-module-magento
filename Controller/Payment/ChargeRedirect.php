@@ -7,26 +7,26 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Controller\Payment;
+namespace BelSmol\VivaWallet\Controller\Payment;
 
 use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
-use Smolyan\VivaWallet\Api\Data\ChargeResponseInterface;
-use Smolyan\VivaWallet\Helper\ConfigHelper;
+use BelSmol\VivaWallet\Api\Data\ChargeResponseInterface;
+use BelSmol\VivaWallet\Helper\ConfigHelper;
 
 /**
  * Class Charge
  * Return charge redirection form which we get from ChargeCallApi
  *
- * @package Smolyan\VivaWallet\Controller\Payment
+ * @package BelSmol\VivaWallet\Controller\Payment
  */
 class ChargeRedirect extends Action
 {

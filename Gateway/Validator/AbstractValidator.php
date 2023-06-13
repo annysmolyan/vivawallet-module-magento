@@ -7,22 +7,22 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Gateway\Validator;
+namespace BelSmol\VivaWallet\Gateway\Validator;
 
 use Magento\Payment\Gateway\Validator\AbstractValidator as GatewayAbstractValidator;
 use Magento\Payment\Gateway\Validator\ResultInterface;
 use Magento\Payment\Gateway\Validator\ResultInterfaceFactory;
-use Smolyan\VivaWallet\Api\Data\HttpResponseInterface;
-use Smolyan\VivaWallet\Model\Logger\Logger;
+use BelSmol\VivaWallet\Api\Data\HttpResponseInterface;
+use BelSmol\VivaWallet\Model\Logger\Logger;
 
 /**
  * Class AbstractValidator
- * @package Smolyan\VivaWallet\Gateway\Validator
+ * @package BelSmol\VivaWallet\Gateway\Validator
  */
 abstract class AbstractValidator extends GatewayAbstractValidator
 {

@@ -7,12 +7,12 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Model;
+namespace BelSmol\VivaWallet\Model;
 
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\UrlInterface;
@@ -20,14 +20,14 @@ use Magento\Framework\View\Asset\Repository;
 use Magento\Payment\Model\CcConfig as MagentoCcConfig;
 use Magento\Payment\Model\Config;
 use Psr\Log\LoggerInterface;
-use Smolyan\VivaWallet\Helper\ConfigHelper;
+use BelSmol\VivaWallet\Helper\ConfigHelper;
 
 /**
  * Credit card configuration model
  * @OVERRIDE
  * Added getCcAllowedTypes() method
  * Class CcConfig
- * @package Smolyan\VivaWallet\Model
+ * @package BelSmol\VivaWallet\Model
  */
 class CcConfig extends MagentoCcConfig
 {

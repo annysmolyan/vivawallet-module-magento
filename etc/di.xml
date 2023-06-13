@@ -8,39 +8,41 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
-    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\HttpRepository-->
-    <preference for="Smolyan\VivaWallet\Api\HttpRepositoryInterface" type="Smolyan\VivaWallet\Model\Http\HttpRepository" />
+    <!--Service contract: START-->
+    <preference for="BelSmol\VivaWallet\Api\HttpRepositoryInterface"
+                type="BelSmol\VivaWallet\Model\Http\HttpRepository" />
 
-    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Response\AuthenticationResponse-->
-    <preference for="Smolyan\VivaWallet\Api\Data\AuthenticationResponseInterface" type="Smolyan\VivaWallet\Model\Http\Response\AuthenticationResponse" />
+    <preference for="BelSmol\VivaWallet\Api\Data\AuthenticationResponseInterface"
+                type="BelSmol\VivaWallet\Model\Http\Response\AuthenticationResponse" />
 
-    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Response\ChargeResponse-->
-    <preference for="Smolyan\VivaWallet\Api\Data\ChargeResponseInterface" type="Smolyan\VivaWallet\Model\Http\Response\ChargeResponse" />
+    <preference for="BelSmol\VivaWallet\Api\Data\ChargeResponseInterface"
+                type="BelSmol\VivaWallet\Model\Http\Response\ChargeResponse" />
 
-    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Request\HttpRequestBuilder-->
-    <preference for="Smolyan\VivaWallet\Api\HttpRequestBuilderInterface" type="Smolyan\VivaWallet\Model\Http\Request\HttpRequestBuilder" />
+    <preference for="BelSmol\VivaWallet\Api\HttpRequestBuilderInterface"
+                type="BelSmol\VivaWallet\Model\Http\Request\HttpRequestBuilder" />
 
-    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Request\HttpRequest-->
-    <preference for="Smolyan\VivaWallet\Api\Data\HttpRequestInterface" type="Smolyan\VivaWallet\Model\Http\Request\HttpRequest" />
+    <preference for="BelSmol\VivaWallet\Api\Data\HttpRequestInterface"
+                type="BelSmol\VivaWallet\Model\Http\Request\HttpRequest" />
 
-    <!--Service contract for the model Smolyan\VivaWallet\Http\Data\TransactionResponseInterface-->
-    <preference for="Smolyan\VivaWallet\Api\Data\TransactionResponseInterface" type="Smolyan\VivaWallet\Model\Http\Response\TransactionResponse" />
+    <preference for="BelSmol\VivaWallet\Api\Data\TransactionResponseInterface"
+                type="BelSmol\VivaWallet\Model\Http\Response\TransactionResponse" />
 
-    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Response\CardTokenResponse-->
-    <preference for="Smolyan\VivaWallet\Api\Data\CardTokenResponseInterface" type="Smolyan\VivaWallet\Model\Http\Response\CardTokenResponse" />
+    <preference for="BelSmol\VivaWallet\Api\Data\CardTokenResponseInterface"
+                type="BelSmol\VivaWallet\Model\Http\Response\CardTokenResponse" />
 
-    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\HttpClient-->
-    <preference for="Smolyan\VivaWallet\Api\HttpClientInterface" type="Smolyan\VivaWallet\Model\Http\HttpClient" />
+    <preference for="BelSmol\VivaWallet\Api\HttpClientInterface"
+                type="BelSmol\VivaWallet\Model\Http\HttpClient" />
 
-    <!--Service contract for the model Smolyan\VivaWallet\Model\Http\Response\ChargeByCardResponse-->
-    <preference for="Smolyan\VivaWallet\Api\Data\ChargeByCardResponseInterface" type="Smolyan\VivaWallet\Model\Http\Response\ChargeByCardResponse" />
+    <preference for="BelSmol\VivaWallet\Api\Data\ChargeByCardResponseInterface"
+                type="BelSmol\VivaWallet\Model\Http\Response\ChargeByCardResponse" />
+    <!--Service contract: END-->
 
     <!--
         TODO: should be removed after magento fixes
@@ -49,40 +51,40 @@
         More details about fix and bug report here: https://github.com/Adyen/adyen-magento2/issues/678
     -->
     <type name="Magento\Vault\Api\PaymentTokenManagementInterface">
-        <plugin name="smolyan_vivawallet_payment_token_management_plugin" type="Smolyan\VivaWallet\Plugin\Model\PaymentTokenManagementPlugin" />
+        <plugin name="belsmol_vivawallet_payment_token_management_plugin" type="BelSmol\VivaWallet\Plugin\Model\PaymentTokenManagementPlugin" />
     </type>
 
     <!--************************************************************* START: ERROR MSG MAPPER *************************************************************-->
     <!--Specify the location of the error mapping file-->
-    <virtualType name="Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualConfigReader" type="Magento\Payment\Gateway\ErrorMapper\VirtualConfigReader">
+    <virtualType name="BelSmol\VivaWallet\Gateway\ErrorMapper\VirtualConfigReader" type="Magento\Payment\Gateway\ErrorMapper\VirtualConfigReader">
         <arguments>
             <argument name="fileName" xsi:type="string">viva_wallet_error_mapping.xml</argument>
         </arguments>
     </virtualType>
-    <virtualType name="Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualMappingData" type="Magento\Payment\Gateway\ErrorMapper\MappingData">
+    <virtualType name="BelSmol\VivaWallet\Gateway\ErrorMapper\VirtualMappingData" type="Magento\Payment\Gateway\ErrorMapper\MappingData">
         <arguments>
-            <argument name="reader" xsi:type="object">Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualConfigReader</argument>
+            <argument name="reader" xsi:type="object">BelSmol\VivaWallet\Gateway\ErrorMapper\VirtualConfigReader</argument>
             <argument name="cacheId" xsi:type="string">viva_wallet_error_mapper</argument>
         </arguments>
     </virtualType>
-    <virtualType name="Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper" type="Magento\Payment\Gateway\ErrorMapper\ErrorMessageMapper">
+    <virtualType name="BelSmol\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper" type="Magento\Payment\Gateway\ErrorMapper\ErrorMessageMapper">
         <arguments>
-            <argument name="messageMapping" xsi:type="object">Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualMappingData</argument>
+            <argument name="messageMapping" xsi:type="object">BelSmol\VivaWallet\Gateway\ErrorMapper\VirtualMappingData</argument>
         </arguments>
     </virtualType>
     <!--************************************************************* END: ERROR MSG MAPPER *************************************************************-->
 
     <!--************************************************************* START: LOGGER *************************************************************-->
-    <type name="Smolyan\VivaWallet\Model\Logger\Handler">
+    <type name="BelSmol\VivaWallet\Model\Logger\Handler">
         <arguments>
             <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
         </arguments>
     </type>
-    <type name="Smolyan\VivaWallet\Model\Logger\Logger">
+    <type name="BelSmol\VivaWallet\Model\Logger\Logger">
         <arguments>
             <argument name="name" xsi:type="string">vivawallet</argument>
             <argument name="handlers"  xsi:type="array">
-                <item name="system" xsi:type="object">Smolyan\VivaWallet\Model\Logger\Handler</item>
+                <item name="system" xsi:type="object">BelSmol\VivaWallet\Model\Logger\Handler</item>
             </argument>
         </arguments>
     </type>
@@ -98,7 +100,7 @@
         -->
     <virtualType name="VivaWalletPaymentGatewayFacade" type="Magento\Payment\Model\Method\Adapter">
         <arguments>
-            <argument name="code" xsi:type="const">\Smolyan\VivaWallet\Model\UI\PaymentConfigProvider::CODE</argument>
+            <argument name="code" xsi:type="const">\BelSmol\VivaWallet\Model\UI\PaymentConfigProvider::CODE</argument>
             <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
             <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\ConfigurableInfo</argument>
             <argument name="valueHandlerPool" xsi:type="object">VivaWalletGatewayValueHandlerPool</argument>
@@ -112,7 +114,7 @@
     -->
     <virtualType name="VivaWalletGatewayConfig" type="Magento\Payment\Gateway\Config\Config">
         <arguments>
-            <argument name="methodCode" xsi:type="const">\Smolyan\VivaWallet\Model\UI\PaymentConfigProvider::CODE</argument>
+            <argument name="methodCode" xsi:type="const">\BelSmol\VivaWallet\Model\UI\PaymentConfigProvider::CODE</argument>
         </arguments>
     </virtualType>
 
@@ -181,12 +183,12 @@
     -->
     <virtualType name="VivaWalletGatewayAuthorizeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
         <arguments>
-            <argument name="requestBuilder" xsi:type="object">Smolyan\VivaWallet\Gateway\Request\AuthorizeRequestBuilder</argument>
-            <argument name="transferFactory" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\TransferFactory</argument>
-            <argument name="client" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\Client\AuthorizeClient</argument>
-            <argument name="validator" xsi:type="object">Smolyan\VivaWallet\Gateway\Validator\AuthorizeValidator</argument>
-            <argument name="handler" xsi:type="object">Smolyan\VivaWallet\Gateway\Response\AuthorizeHandler</argument>
-            <argument name="errorMessageMapper" xsi:type="object">Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper</argument>
+            <argument name="requestBuilder" xsi:type="object">BelSmol\VivaWallet\Gateway\Request\AuthorizeRequestBuilder</argument>
+            <argument name="transferFactory" xsi:type="object">BelSmol\VivaWallet\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">BelSmol\VivaWallet\Gateway\Http\Client\AuthorizeClient</argument>
+            <argument name="validator" xsi:type="object">BelSmol\VivaWallet\Gateway\Validator\AuthorizeValidator</argument>
+            <argument name="handler" xsi:type="object">BelSmol\VivaWallet\Gateway\Response\AuthorizeHandler</argument>
+            <argument name="errorMessageMapper" xsi:type="object">BelSmol\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper</argument>
         </arguments>
     </virtualType>
 
@@ -196,26 +198,26 @@
     <virtualType name="VivaWalletGatewayCaptureCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
         <arguments>
             <argument name="requestBuilder" xsi:type="object">VivaWalletCaptureRequestComposite</argument>
-            <argument name="transferFactory" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\TransferFactory</argument>
-            <argument name="client" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\Client\CaptureClient</argument>
-            <argument name="validator" xsi:type="object">Smolyan\VivaWallet\Gateway\Validator\CaptureValidator</argument>
+            <argument name="transferFactory" xsi:type="object">BelSmol\VivaWallet\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">BelSmol\VivaWallet\Gateway\Http\Client\CaptureClient</argument>
+            <argument name="validator" xsi:type="object">BelSmol\VivaWallet\Gateway\Validator\CaptureValidator</argument>
             <argument name="handler" xsi:type="object">VivaWalletCaptureResponseHandler</argument>
-            <argument name="errorMessageMapper" xsi:type="object">Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper</argument>
+            <argument name="errorMessageMapper" xsi:type="object">BelSmol\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper</argument>
         </arguments>
     </virtualType>
     <virtualType name="VivaWalletCaptureRequestComposite" type="Magento\Payment\Gateway\Request\BuilderComposite">
         <arguments>
             <argument name="builders" xsi:type="array">
-                <item name="capture_builder" xsi:type="string">Smolyan\VivaWallet\Gateway\Request\CaptureRequestBuilder</item>
-                <item name="vault_builder" xsi:type="string">Smolyan\VivaWallet\Gateway\Request\VaultRequestBuilder</item>
+                <item name="capture_builder" xsi:type="string">BelSmol\VivaWallet\Gateway\Request\CaptureRequestBuilder</item>
+                <item name="vault_builder" xsi:type="string">BelSmol\VivaWallet\Gateway\Request\VaultRequestBuilder</item>
             </argument>
         </arguments>
     </virtualType>
     <virtualType name="VivaWalletCaptureResponseHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
         <arguments>
             <argument name="handlers" xsi:type="array">
-                <item name="capture_handler" xsi:type="string">Smolyan\VivaWallet\Gateway\Response\CaptureHandler</item>
-                <item name="vault_handler" xsi:type="string">Smolyan\VivaWallet\Gateway\Response\VaultDetailsHandler</item>
+                <item name="capture_handler" xsi:type="string">BelSmol\VivaWallet\Gateway\Response\CaptureHandler</item>
+                <item name="vault_handler" xsi:type="string">BelSmol\VivaWallet\Gateway\Response\VaultDetailsHandler</item>
             </argument>
         </arguments>
     </virtualType>
@@ -225,12 +227,12 @@
     -->
     <virtualType name="VivaWalletVaultAuthorizeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
         <arguments>
-            <argument name="requestBuilder" xsi:type="object">Smolyan\VivaWallet\Gateway\Request\VaultAuthorizeRequestBuilder</argument>
-            <argument name="transferFactory" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\TransferFactory</argument>
-            <argument name="client" xsi:type="object">Smolyan\VivaWallet\Gateway\Http\Client\VaultAuthorizeClient</argument>
-            <argument name="validator" xsi:type="object">Smolyan\VivaWallet\Gateway\Validator\VaultAuthorizeValidator</argument>
-            <argument name="handler" xsi:type="object">Smolyan\VivaWallet\Gateway\Response\VaultAuthorizeHandler</argument>
-            <argument name="errorMessageMapper" xsi:type="object">Smolyan\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper</argument>
+            <argument name="requestBuilder" xsi:type="object">BelSmol\VivaWallet\Gateway\Request\VaultAuthorizeRequestBuilder</argument>
+            <argument name="transferFactory" xsi:type="object">BelSmol\VivaWallet\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">BelSmol\VivaWallet\Gateway\Http\Client\VaultAuthorizeClient</argument>
+            <argument name="validator" xsi:type="object">BelSmol\VivaWallet\Gateway\Validator\VaultAuthorizeValidator</argument>
+            <argument name="handler" xsi:type="object">BelSmol\VivaWallet\Gateway\Response\VaultAuthorizeHandler</argument>
+            <argument name="errorMessageMapper" xsi:type="object">BelSmol\VivaWallet\Gateway\ErrorMapper\VirtualErrorMessageMapper</argument>
         </arguments>
     </virtualType>
 
@@ -243,7 +245,7 @@
     -->
     <virtualType name="VivaWalletVaultPaymentConfig" type="Magento\Payment\Gateway\Config\Config">
         <arguments>
-            <argument name="methodCode" xsi:type="const">\Smolyan\VivaWallet\Model\UI\PaymentConfigProvider::CC_VAULT_CODE</argument>
+            <argument name="methodCode" xsi:type="const">\BelSmol\VivaWallet\Model\UI\PaymentConfigProvider::CC_VAULT_CODE</argument>
         </arguments>
     </virtualType>
     <virtualType name="VivaWalletVaultPaymentValueHandler" type="VaultPaymentDefaultValueHandler">
@@ -263,7 +265,7 @@
             <argument name="config" xsi:type="object">VivaWalletVaultPaymentConfig</argument>
             <argument name="valueHandlerPool" xsi:type="object">VivaWalletVaultPaymentValueHandlerPool</argument>
             <argument name="vaultProvider" xsi:type="object">VivaWalletPaymentGatewayFacade</argument>
-            <argument name="code" xsi:type="const">\Smolyan\VivaWallet\Model\UI\PaymentConfigProvider::CC_VAULT_CODE</argument>
+            <argument name="code" xsi:type="const">\BelSmol\VivaWallet\Model\UI\PaymentConfigProvider::CC_VAULT_CODE</argument>
         </arguments>
     </virtualType>
     <!--************************************************************* END: VAULT INTEGRATION *************************************************************-->

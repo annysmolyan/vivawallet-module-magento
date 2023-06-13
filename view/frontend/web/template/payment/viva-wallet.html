@@ -6,7 +6,7 @@
                data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"
         />
         <label data-bind="attr: {'for': getCode()}" class="label">
-            <img class="viva-wallet-payment-checkout-logo" data-bind="attr: { src: require.toUrl('Smolyan_VivaWallet/images/viva-wallet-logo.svg') }" />
+            <img class="viva-wallet-payment-checkout-logo" data-bind="attr: { src: require.toUrl('BelSmol_VivaWallet/images/viva-wallet-logo.svg') }" />
             <span data-bind="text: getTitle()"></span>
         </label>
     </div>
@@ -19,7 +19,7 @@
             </div>
             <!-- Render the credit card form. -->
             <form class="viva-wallet-credit-card form" data-bind="attr: {'id': getCode() + '-form'}">
-                <!-- ko template: 'Smolyan_VivaWallet/payment/cc-form' -->
+                <!-- ko template: 'BelSmol_VivaWallet/payment/cc-form' -->
                 <!-- /ko -->
 
                 <!-- ko if: (isVaultEnabled())-->

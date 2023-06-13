@@ -7,26 +7,26 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Model\Http;
+namespace BelSmol\VivaWallet\Model\Http;
 
 use Magento\Framework\HTTP\Client\CurlFactory;
 use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
-use Smolyan\VivaWallet\Api\Data\HttpRequestInterface;
-use Smolyan\VivaWallet\Api\Data\HttpResponseInterface;
-use Smolyan\VivaWallet\Api\HttpClientInterface;
-use Smolyan\VivaWallet\Model\Http\Mapper\ResponseMapperFactory;
-use Smolyan\VivaWallet\Model\Logger\Logger;
+use BelSmol\VivaWallet\Api\Data\HttpRequestInterface;
+use BelSmol\VivaWallet\Api\Data\HttpResponseInterface;
+use BelSmol\VivaWallet\Api\HttpClientInterface;
+use BelSmol\VivaWallet\Model\Http\Mapper\ResponseMapperFactory;
+use BelSmol\VivaWallet\Model\Logger\Logger;
 
 /**
  * Class HttpClient
  * Call api
  * see https://developer.vivawallet.com/api-reference-guide/native-checkout-v2-api/
- * @package Smolyan\VivaWallet\Model\Http
+ * @package BelSmol\VivaWallet\Model\Http
  */
 class HttpClient implements HttpClientInterface
 {

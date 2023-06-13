@@ -7,23 +7,23 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Model\Http\Request;
+namespace BelSmol\VivaWallet\Model\Http\Request;
 
 use Magento\Framework\UrlInterface;
-use Smolyan\VivaWallet\Api\Data\HttpRequestInterface;
-use Smolyan\VivaWallet\Api\Data\HttpRequestInterfaceFactory;
-use Smolyan\VivaWallet\Api\HttpRequestBuilderInterface;
-use Smolyan\VivaWallet\Helper\ConfigHelper;
+use BelSmol\VivaWallet\Api\Data\HttpRequestInterface;
+use BelSmol\VivaWallet\Api\Data\HttpRequestInterfaceFactory;
+use BelSmol\VivaWallet\Api\HttpRequestBuilderInterface;
+use BelSmol\VivaWallet\Helper\ConfigHelper;
 
 /**
  * Build object for API call
  * Class HttpRequestBuilder
- * @package Smolyan\VivaWallet\Model\Http\Request
+ * @package BelSmol\VivaWallet\Model\Http\Request
  */
 class HttpRequestBuilder implements HttpRequestBuilderInterface
 {

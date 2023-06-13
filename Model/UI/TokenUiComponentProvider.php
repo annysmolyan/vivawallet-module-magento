@@ -7,23 +7,23 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Model\UI;
+namespace BelSmol\VivaWallet\Model\UI;
 
 use Magento\Framework\UrlInterface;
 use Magento\Vault\Api\Data\PaymentTokenInterface;
 use Magento\Vault\Model\Ui\TokenUiComponentInterface;
 use Magento\Vault\Model\Ui\TokenUiComponentInterfaceFactory;
 use Magento\Vault\Model\Ui\TokenUiComponentProviderInterface;
-use Smolyan\VivaWallet\Model\UI\PaymentConfigProvider;
+use BelSmol\VivaWallet\Model\UI\PaymentConfigProvider;
 
 /**
  * Class TokenUiComponentProvider
- * @package Smolyan\VivaWallet\Model\UI
+ * @package BelSmol\VivaWallet\Model\UI
  */
 class TokenUiComponentProvider implements TokenUiComponentProviderInterface
 {
@@ -67,7 +67,7 @@ class TokenUiComponentProvider implements TokenUiComponentProviderInterface
                     self::COMPONENT_PUBLIC_HASH => $paymentToken->getPublicHash(),
                     'completeCheckoutUrl' => $this->urlBuilder->getUrl(self::COMPLETE_CHECKOUT_URL),
                 ],
-                'name' => 'Smolyan_VivaWallet/js/view/payment/method-renderer/vault'
+                'name' => 'BelSmol_VivaWallet/js/view/payment/method-renderer/vault'
             ]
         );
 

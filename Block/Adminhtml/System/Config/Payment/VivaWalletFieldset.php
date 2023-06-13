@@ -7,12 +7,12 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Block\Adminhtml\System\Config\Payment;
+namespace BelSmol\VivaWallet\Block\Adminhtml\System\Config\Payment;
 
 use Magento\Config\Block\System\Config\Form\Fieldset;
 use Magento\Framework\Data\Form\Element\AbstractElement;
@@ -21,7 +21,7 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
  * Class VivaWalletFieldset
  * Display viva wallet fieldset in magento admin panel
  * in Configuration -> Sales -> Payment methods
- * @package Smolyan\VivaWallet\Block\Adminhtml\System\Config\Payment
+ * @package BelSmol\VivaWallet\Block\Adminhtml\System\Config\Payment
  */
 class VivaWalletFieldset extends Fieldset
 {

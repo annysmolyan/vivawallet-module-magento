@@ -7,18 +7,18 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Model\UI;
+namespace BelSmol\VivaWallet\Model\UI;
 
 use Magento\Framework\UrlInterface;
-use Smolyan\VivaWallet\Api\Data\AuthenticationResponseInterface;
-use Smolyan\VivaWallet\Api\HttpRepositoryInterface;
-use Smolyan\VivaWallet\Helper\ConfigHelper;
-use Smolyan\VivaWallet\Model\CcConfig;
+use BelSmol\VivaWallet\Api\Data\AuthenticationResponseInterface;
+use BelSmol\VivaWallet\Api\HttpRepositoryInterface;
+use BelSmol\VivaWallet\Helper\ConfigHelper;
+use BelSmol\VivaWallet\Model\CcConfig;
 
 /**
  * Class PaymentConfigProvider
@@ -27,7 +27,7 @@ use Smolyan\VivaWallet\Model\CcConfig;
  * Use this class for providing data from backend to frontend
  * You can get config in your js component using window object, for example window.checkoutConfig.payment.viva_wallet
  *
- * @package Smolyan\VivaWallet\Model\UI
+ * @package BelSmol\VivaWallet\Model\UI
  */
 class PaymentConfigProvider
 {

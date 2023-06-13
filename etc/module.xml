@@ -8,13 +8,13 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Smolyan_VivaWallet" setup_version="1.0.0">
+    <module name="BelSmol_VivaWallet" setup_version="1.0.1">
         <sequence>
             <module name="Magento_Csp"/>
             <module name="Magento_Sales"/>

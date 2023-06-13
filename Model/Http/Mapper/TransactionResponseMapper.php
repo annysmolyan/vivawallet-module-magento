@@ -7,21 +7,21 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Model\Http\Mapper;
+namespace BelSmol\VivaWallet\Model\Http\Mapper;
 
-use Smolyan\VivaWallet\Api\Data\HttpResponseInterface;
-use Smolyan\VivaWallet\Api\Data\TransactionResponseInterface;
-use Smolyan\VivaWallet\Api\Data\TransactionResponseInterfaceFactory;
-use Smolyan\VivaWallet\Api\ResponseMapperInterface;
+use BelSmol\VivaWallet\Api\Data\HttpResponseInterface;
+use BelSmol\VivaWallet\Api\Data\TransactionResponseInterface;
+use BelSmol\VivaWallet\Api\Data\TransactionResponseInterfaceFactory;
+use BelSmol\VivaWallet\Api\ResponseMapperInterface;
 
 /**
  * Class TransactionResponseMapper
- * @package Smolyan\VivaWallet\Model\Http\Mapper
+ * @package BelSmol\VivaWallet\Model\Http\Mapper
  */
 class TransactionResponseMapper implements ResponseMapperInterface
 {

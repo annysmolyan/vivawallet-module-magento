@@ -8,8 +8,8 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 -->
@@ -35,7 +35,7 @@
                                                             <item name="children" xsi:type="array">
                                                                 <!--Added viva wallet payment-->
                                                                 <item name="viva-wallet-payments" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Smolyan_VivaWallet/js/view/payment/viva-wallet-payment</item>
+                                                                    <item name="component" xsi:type="string">BelSmol_VivaWallet/js/view/payment/viva-wallet-payment</item>
                                                                     <item name="methods" xsi:type="array">
                                                                         <item name="viva_wallet" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">true</item>

@@ -7,24 +7,24 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Gateway\Http\Client;
+namespace BelSmol\VivaWallet\Gateway\Http\Client;
 
 use Magento\Payment\Gateway\Http\ClientInterface;
 use Magento\Payment\Gateway\Http\TransferInterface;
-use Smolyan\VivaWallet\Api\Data\AuthenticationResponseInterface;
-use Smolyan\VivaWallet\Api\Data\OrderPaymentInterface;
-use Smolyan\VivaWallet\Api\HttpRepositoryInterface;
-use Smolyan\VivaWallet\Gateway\Request\AuthorizeRequestBuilder;
-use Smolyan\VivaWallet\Model\Http\Response\ChargeResponse;
+use BelSmol\VivaWallet\Api\Data\AuthenticationResponseInterface;
+use BelSmol\VivaWallet\Api\Data\OrderPaymentInterface;
+use BelSmol\VivaWallet\Api\HttpRepositoryInterface;
+use BelSmol\VivaWallet\Gateway\Request\AuthorizeRequestBuilder;
+use BelSmol\VivaWallet\Model\Http\Response\ChargeResponse;
 
 /**
  * Class AuthorizeClient
- * @package Smolyan\VivaWallet\Gateway\Http\Client
+ * @package BelSmol\VivaWallet\Gateway\Http\Client
  */
 class AuthorizeClient implements ClientInterface
 {

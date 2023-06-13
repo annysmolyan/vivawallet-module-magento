@@ -7,12 +7,12 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Controller\Payment;
+namespace BelSmol\VivaWallet\Controller\Payment;
 
 use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Framework\App\Action\Action;
@@ -22,14 +22,14 @@ use Magento\Payment\Gateway\Command\CommandException;
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Api\Data\OrderPaymentInterface;
 use Magento\Sales\Api\OrderManagementInterface;
-use Smolyan\VivaWallet\Helper\ConfigHelper;
-use Smolyan\VivaWallet\Model\Logger\Logger;
-use Smolyan\VivaWallet\Model\UI\PaymentConfigProvider;
+use BelSmol\VivaWallet\Helper\ConfigHelper;
+use BelSmol\VivaWallet\Model\Logger\Logger;
+use BelSmol\VivaWallet\Model\UI\PaymentConfigProvider;
 
 /**
  * Class CompleteCheckout
  * Capture payment here
- * @package Smolyan\VivaWallet\Controller\Payment
+ * @package BelSmol\VivaWallet\Controller\Payment
  */
 class CompleteCheckout extends Action
 {

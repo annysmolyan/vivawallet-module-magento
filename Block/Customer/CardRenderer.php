@@ -7,23 +7,23 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Block\Customer;
+namespace BelSmol\VivaWallet\Block\Customer;
 
 use Magento\Vault\Api\Data\PaymentTokenInterface;
 use Magento\Vault\Block\AbstractCardRenderer;
-use Smolyan\VivaWallet\Api\Data\OrderPaymentInterface;
-use Smolyan\VivaWallet\Model\UI\PaymentConfigProvider;
+use BelSmol\VivaWallet\Api\Data\OrderPaymentInterface;
+use BelSmol\VivaWallet\Model\UI\PaymentConfigProvider;
 
 /**
  * Class CardRenderer
  * Render saved card list in /vault/cards/listaction/
  *
- * @package Smolyan\VivaWallet\Block\Customer
+ * @package BelSmol\VivaWallet\Block\Customer
  */
 class CardRenderer extends AbstractCardRenderer
 {

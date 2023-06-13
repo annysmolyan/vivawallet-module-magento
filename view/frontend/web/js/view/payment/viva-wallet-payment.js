@@ -5,8 +5,8 @@
 //* It is also available through the world-wide-web at this URL:
 //* https://www.gnu.org/licenses/gpl-3.0.en.html
 //*
-//* @category Smolyan
-//* @package Smolyan_VivaWallet
+//* @category BelSmol
+//* @package BelSmol_VivaWallet
 //* @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
 //*/
 
@@ -22,7 +22,7 @@ define([
         rendererList.push(
             {
                 type: 'viva_wallet',
-                component: 'Smolyan_VivaWallet/js/view/payment/method-renderer/viva-wallet-method'
+                component: 'BelSmol_VivaWallet/js/view/payment/method-renderer/viva-wallet-method'
             },
         );
 

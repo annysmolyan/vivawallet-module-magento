@@ -7,23 +7,23 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Gateway\Request;
+namespace BelSmol\VivaWallet\Gateway\Request;
 
 use Magento\Payment\Gateway\Request\BuilderInterface;
-use Smolyan\VivaWallet\Api\Data\OrderPaymentInterface;
-use Smolyan\VivaWallet\Gateway\Helper\SubjectReader;
-use Smolyan\VivaWallet\Helper\ConfigHelper;
+use BelSmol\VivaWallet\Api\Data\OrderPaymentInterface;
+use BelSmol\VivaWallet\Gateway\Helper\SubjectReader;
+use BelSmol\VivaWallet\Helper\ConfigHelper;
 
 /**
  * Class AuthorizeRequest
  * Authorize payment method for the Viva Wallet system
  *
- * @package Smolyan\VivaWallet\Gateway\Request
+ * @package BelSmol\VivaWallet\Gateway\Request
  */
 class AuthorizeRequestBuilder implements BuilderInterface
 {

@@ -7,25 +7,25 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Gateway\Helper;
+namespace BelSmol\VivaWallet\Gateway\Helper;
 
 use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 use Magento\Payment\Gateway\Helper\SubjectReader as MagentoSubjectReader;
-use Smolyan\VivaWallet\Api\Data\ChargeByCardResponseInterface;
-use Smolyan\VivaWallet\Api\Data\ChargeResponseInterface;
-use Smolyan\VivaWallet\Api\Data\TransactionResponseInterface;
+use BelSmol\VivaWallet\Api\Data\ChargeByCardResponseInterface;
+use BelSmol\VivaWallet\Api\Data\ChargeResponseInterface;
+use BelSmol\VivaWallet\Api\Data\TransactionResponseInterface;
 
 /**
  * @OVERRIDE
  * Class SubjectReader
  * Used in response handler
- * @package Smolyan\VivaWallet\Gateway\Helper
+ * @package BelSmol\VivaWallet\Gateway\Helper
  */
 class SubjectReader extends MagentoSubjectReader
 {

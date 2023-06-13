@@ -7,12 +7,12 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Plugin\Model;
+namespace BelSmol\VivaWallet\Plugin\Model;
 
 use Magento\Sales\Api\Data\OrderPaymentInterface;
 use Magento\Vault\Api\Data\PaymentTokenInterface;
@@ -20,7 +20,7 @@ use Magento\Vault\Api\PaymentTokenManagementInterface as Subject;
 
 /**
  * Class PaymentTokenManagementPlugin
- * @package Smolyan\VivaWallet\Plugin\Model
+ * @package BelSmol\VivaWallet\Plugin\Model
  */
 class PaymentTokenManagementPlugin
 {

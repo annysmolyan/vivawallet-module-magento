@@ -7,19 +7,19 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Gateway\Response;
+namespace BelSmol\VivaWallet\Gateway\Response;
 
 use Magento\Payment\Gateway\Response\HandlerInterface;
-use Smolyan\VivaWallet\Gateway\Helper\SubjectReader;
+use BelSmol\VivaWallet\Gateway\Helper\SubjectReader;
 
 /**
  * Class VaultAuthorizeHandler
- * @package Smolyan\VivaWallet\Gateway\Response
+ * @package BelSmol\VivaWallet\Gateway\Response
  */
 class VaultAuthorizeHandler implements HandlerInterface
 {

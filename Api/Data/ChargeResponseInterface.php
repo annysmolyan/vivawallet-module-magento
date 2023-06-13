@@ -7,17 +7,17 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Api\Data;
+namespace BelSmol\VivaWallet\Api\Data;
 
 /**
  * @api
  * Interface ChargeResponseInterface
- * @package Smolyan\VivaWallet\Api\Data
+ * @package BelSmol\VivaWallet\Api\Data
  */
 interface ChargeResponseInterface
 {

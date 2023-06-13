@@ -7,23 +7,23 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Model\Http;
+namespace BelSmol\VivaWallet\Model\Http;
 
-use Smolyan\VivaWallet\Api\Data\HttpRequestInterface;
-use Smolyan\VivaWallet\Api\Data\HttpResponseInterface;
-use Smolyan\VivaWallet\Api\HttpRepositoryInterface;
-use Smolyan\VivaWallet\Api\HttpRequestBuilderInterface;
-use Smolyan\VivaWallet\Api\HttpClientInterface;
+use BelSmol\VivaWallet\Api\Data\HttpRequestInterface;
+use BelSmol\VivaWallet\Api\Data\HttpResponseInterface;
+use BelSmol\VivaWallet\Api\HttpRepositoryInterface;
+use BelSmol\VivaWallet\Api\HttpRequestBuilderInterface;
+use BelSmol\VivaWallet\Api\HttpClientInterface;
 
 /**
  * Class HttpRepository
  * Get data from api
- * @package Smolyan\VivaWallet\Model\Http
+ * @package BelSmol\VivaWallet\Model\Http
  */
 class HttpRepository implements HttpRepositoryInterface
 {

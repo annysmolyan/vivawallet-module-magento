@@ -7,25 +7,25 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Observer\Gateway;
+namespace BelSmol\VivaWallet\Observer\Gateway;
 
 use Magento\Framework\DataObject;
 use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\Event\Observer;
 use Magento\Payment\Observer\AbstractDataAssignObserver;
 use Magento\Quote\Api\Data\PaymentInterface;
-use Smolyan\VivaWallet\Api\Data\OrderPaymentInterface;
+use BelSmol\VivaWallet\Api\Data\OrderPaymentInterface;
 
 /**
  * Class DataAssignObserver
  * Assign data from payment form, get data from payment js component.
  * see geData() method in method-renderer/viva-wallet-method.js
- * @package Smolyan\VivaWallet\Observer\Gateway
+ * @package BelSmol\VivaWallet\Observer\Gateway
  */
 class DataAssignObserver extends AbstractDataAssignObserver
 {

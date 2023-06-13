@@ -8,8 +8,8 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 -->
@@ -19,7 +19,7 @@
             <group id="viva_wallet" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Viva Wallet</label>
                 <fieldset_css>complex viva-wallet-section with-button</fieldset_css>
-                <frontend_model>Smolyan\VivaWallet\Block\Adminhtml\System\Config\Payment\VivaWalletFieldset</frontend_model>
+                <frontend_model>BelSmol\VivaWallet\Block\Adminhtml\System\Config\Payment\VivaWalletFieldset</frontend_model>
                 <group id="settings" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Viva Wallet General Settings</label>
                     <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">

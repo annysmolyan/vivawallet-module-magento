@@ -7,12 +7,12 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Gateway\Http;
+namespace BelSmol\VivaWallet\Gateway\Http;
 
 use Magento\Payment\Gateway\Http\TransferBuilder;
 use Magento\Payment\Gateway\Http\TransferFactoryInterface;
@@ -20,7 +20,7 @@ use Magento\Payment\Gateway\Http\TransferInterface;
 
 /**
  * Class TransferFactory
- * @package Smolyan\VivaWallet\Gateway\Http
+ * @package BelSmol\VivaWallet\Gateway\Http
  */
 class TransferFactory implements TransferFactoryInterface
 {

@@ -7,12 +7,12 @@
  * It is also available through the world-wide-web at this URL:
  * https://www.gnu.org/licenses/gpl-3.0.en.html
  *
- * @category Smolyan
- * @package Smolyan_VivaWallet
+ * @category BelSmol
+ * @package BelSmol_VivaWallet
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License v3 (GPL 3.0)
  */
 
-namespace Smolyan\VivaWallet\Gateway\Response;
+namespace BelSmol\VivaWallet\Gateway\Response;
 
 use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 use Magento\Payment\Gateway\Response\HandlerInterface;
@@ -21,12 +21,12 @@ use Magento\Sales\Api\Data\OrderPaymentExtension;
 use Magento\Sales\Api\Data\OrderPaymentExtensionInterfaceFactory;
 use Magento\Vault\Api\Data\PaymentTokenFactoryInterface;
 use Magento\Vault\Api\Data\PaymentTokenInterface;
-use Smolyan\VivaWallet\Api\Data\OrderPaymentInterface;
-use Smolyan\VivaWallet\Gateway\Helper\SubjectReader;
+use BelSmol\VivaWallet\Api\Data\OrderPaymentInterface;
+use BelSmol\VivaWallet\Gateway\Helper\SubjectReader;
 
 /**
  * Class VaultDetailsHandler
- * @package Smolyan\VivaWallet\Gateway\Response
+ * @package BelSmol\VivaWallet\Gateway\Response
  */
 class VaultDetailsHandler implements HandlerInterface
 {
